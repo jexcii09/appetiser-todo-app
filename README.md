@@ -3,21 +3,25 @@
  - PHP ^8.1
  - Node v18.17.1
 
+## Specifications
+ - Laravel 10
+ - Vue 3
+ - Bootstrap 5
 ---
 ### Step 1
 Create database using PhpMyAdmin
 
 ### Step 2
-Setup your env file. In command line type
+Setup your env file. In command line type <br/>
 `composer install` <br/>
 `npm install` 
 
 `cp .env.example .env` <br/>
-`php artisan key:generate`
+`php artisan key:generate` <br/>
 after this change database name in env `DB_DATABASE=[database_name_you_created]`
 
 ### Step 3
-Type this in your command line to populate the database
+Type this in your command line to populate the database <br/>
 `php artisan migrate` <br/>
 `php artisan db:seed`
 
