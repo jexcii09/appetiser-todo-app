@@ -1,0 +1,789 @@
+{
+	"info": {
+		"_postman_id": "a117481e-3b20-49b9-9f40-e3bb8ac61152",
+		"name": "Todo App Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5989931",
+		"_collection_link": "https://www.postman.com/kustomizerteam/workspace/appetiser/collection/5989931-a117481e-3b20-49b9-9f40-e3bb8ac61152?action=share&source=collection_link&creator=5989931"
+	},
+	"item": [
+		{
+			"name": "Options",
+			"item": [
+				{
+					"name": "Priority Level",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/options/priority-levels",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"options",
+								"priority-levels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Statuses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/options/statuses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"options",
+								"statuses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Todo",
+			"item": [
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "",
+									"description": "int|exist in users",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "",
+									"description": "string|required",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"description": "text|required",
+									"type": "text"
+								},
+								{
+									"key": "due_date",
+									"value": "",
+									"description": "date:yyyy-mm-dd|optional",
+									"type": "text"
+								},
+								{
+									"key": "priority_level_id",
+									"value": "",
+									"description": "int|exist in priority_levels|optional",
+									"type": "text"
+								},
+								{
+									"key": "status_id",
+									"value": "",
+									"description": "int|exist in statuses|optional",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/todos/todo",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"todos",
+								"todo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": 1,\r\n    \"name\": \"Sample\",\r\n    \"description\": \"Testing Lang\",\r\n    \"due_date\": \"2023-09-30\",\r\n    \"priority_level_id\": 4,\r\n    \"status_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/todos/todo/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"todos",
+								"todo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/todos/update-status/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"todos",
+								"update-status",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/todos/todo/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"todos",
+								"todo",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/todos/todo/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"todos",
+								"todo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/todos/todo/?paginate=1&per_page=10&user_id=1&order_by&status_id&priority_level_id&due_date&filter_status_id&filter_priority_level_id&filter_due_date_from&filter_due_date_to&keyword=",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"todos",
+								"todo",
+								""
+							],
+							"query": [
+								{
+									"key": "paginate",
+									"value": "1",
+									"description": "1,0"
+								},
+								{
+									"key": "per_page",
+									"value": "10",
+									"description": "if paginate is true"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"description": "int|exist in users"
+								},
+								{
+									"key": "order_by",
+									"value": null,
+									"description": "ASC, DESC"
+								},
+								{
+									"key": "status_id",
+									"value": null,
+									"description": "int|exist in priority_levels| use for sorting"
+								},
+								{
+									"key": "priority_level_id",
+									"value": null,
+									"description": "int|exist in statuses| use for sorting"
+								},
+								{
+									"key": "due_date",
+									"value": null,
+									"description": "date:yyyy-mm-dd| use for sorting"
+								},
+								{
+									"key": "filter_status_id",
+									"value": null,
+									"description": "int|exist in statuses| use for filter"
+								},
+								{
+									"key": "filter_priority_level_id",
+									"value": null,
+									"description": "int|exist in priority_levels| use for filter"
+								},
+								{
+									"key": "filter_due_date_from",
+									"value": null,
+									"description": "date:yyyy-mm-dd| use for filtering"
+								},
+								{
+									"key": "filter_due_date_to",
+									"value": null,
+									"description": "date:yyyy-mm-dd| use for filtering"
+								},
+								{
+									"key": "keyword",
+									"value": "",
+									"description": "string| use for searching"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Todo Archive",
+			"item": [
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\" : 1,\r\n    \"details\" : \"{\\\"id\\\":2,\\\"user_id\\\":22,\\\"name\\\":\\\"akin\\\",\\\"description\\\":\\\"description\\\",\\\"due_date\\\":\\\"2023-09-28\\\",\\\"priority_level_id\\\":3,\\\"status_id\\\":2,\\\"created_at\\\":\\\"2023-09-17T16:39:25.000000Z\\\",\\\"updated_at\\\":\\\"2023-09-17T16:39:28.000000Z\\\"}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/todos/archive/store",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"todos",
+								"archive",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/todos/archive/delete/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"todos",
+								"archive",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/todos/archive/?paginate=1&per_page=5&user_id=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"todos",
+								"archive",
+								""
+							],
+							"query": [
+								{
+									"key": "paginate",
+									"value": "1",
+									"description": "1,0"
+								},
+								{
+									"key": "per_page",
+									"value": "5",
+									"description": "if paginate is true"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"description": "int| exist in user_id"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/auth/user/profile",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test@example.com",
+									"description": "string| valid email address",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/auth/user/logout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Example User",
+									"description": "string|required",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test@example.com",
+									"description": "string|valid email address",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/auth/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "File",
+			"item": [
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "todo_id",
+									"value": "2",
+									"description": "int|exist in todos",
+									"type": "text"
+								},
+								{
+									"key": "file_name",
+									"value": "sample_image.jpg",
+									"description": "string|file name of uploaded file",
+									"type": "text"
+								},
+								{
+									"key": "path",
+									"value": "http://127.0.0.1:8000/public/images/sample_image.jpg",
+									"description": "http://127.0.0.1:8000/public/images/sample_image.jpg",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/images",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/images/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"images",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tags",
+			"item": [
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "todo_id",
+									"value": "2",
+									"description": "int|exist in todos",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "complete",
+									"description": "string|required",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/tags",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/tags/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tags",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
