@@ -27,9 +27,9 @@ Type this in your command line to populate the database <br/>
 
 
 ### Step 4
-Open two command line to connect to server.
+Open two command line to connect to server. <br />
 CLI 1: `php artisan serve` <br/>
-CLI 1: `npm run dev`
+CLI 2: `npm run dev`
 
 ### Step 5
 You can now access the application by default you can access with this url: http://localhost:8000/
