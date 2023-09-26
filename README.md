@@ -9,22 +9,22 @@ Create database using PhpMyAdmin
 
 ### Step 2
 Setup your env file. In command line type
-`composer install`
+`composer install` <br/>
 `npm install` 
 
-`cp .env.example .env`
+`cp .env.example .env` <br/>
 `php artisan key:generate`
 after this change database name in env `DB_DATABASE=[database_name_you_created]`
 
 ### Step 3
 Type this in your command line to populate the database
-`php artisan migrate`
+`php artisan migrate` <br/>
 `php artisan db:seed`
 
 
 ### Step 4
 Open two command line to connect to server.
-CLI 1: `php artisan serve`
+CLI 1: `php artisan serve` <br/>
 CLI 1: `npm run dev`
 
 ### Step 5
