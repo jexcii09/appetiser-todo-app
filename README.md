@@ -34,6 +34,6 @@ CLI 2: `npm run dev`
 ### Step 5
 You can now access the application by default you can access with this url: http://localhost:8000/
 
-FOR MORE DETAILS LOOK UP TO DOCUMENTATION FOLDER
+FOR MORE DETAILS LOOK UP TO DOCUMENTATION FOLDER <br />
 Files Included: API Doc, User Manual, API json collection
 
